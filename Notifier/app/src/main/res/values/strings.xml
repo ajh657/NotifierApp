@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Notifier</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_notificationTest">Notification test</string>
+    <string name="notificationChannel_1_Name">Normal</string>
+    <string name="notificationChannel_1_ID">NNotification</string>
+    <string name="notificationChannel_1_description">For normal notifications</string>
+    <string name="notificationChannel_2_Name">Emergency</string>
+    <string name="notificationChannel_2_ID">ENotification</string>
+    <string name="notificationChannel_2_description">For emergency notifications</string>
+    <string name="notificationTest_Title">Testing</string>
+    <string name="notificationTest_Text">This is a test Notification</string>
+</resources>
