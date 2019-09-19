@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 public class CustomNotificationHandler {
 
@@ -27,15 +28,20 @@ public class CustomNotificationHandler {
             NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
 
-            Log.d("NotificationChannelCreator", "Created: " + CHANNEL_ID);
+            Log.d("ChannelCreator", "Created: " + CHANNEL_ID);
         }
     }
 
-    public void sendSmallNoitification(String title, String text, String Channel_ID){
+    public void sendSmallNotification(String title, String text, String Channel_ID, int notificationID){
         NotificationCompat.Builder smallBuilder = new NotificationCompat.Builder(context, Channel_ID);
         smallBuilder.setSmallIcon(R.drawable.ic_launcher_foreground);
         smallBuilder.setContentTitle(title);
         smallBuilder.setContentText(text);
         smallBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
+
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(notificationID, smallBuilder.build());
     }
 }

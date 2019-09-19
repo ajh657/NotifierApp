@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.testNotification){
             Log.d("OptionsItemLog",Integer.toString(id) +" ?= " + R.id.testNotification);
-            customNotificationHandler.sendSmallNoitification(getString(R.string.notificationTest_Title), getString(R.string.notificationTest_Text), getString(R.string.notificationChannel_1_ID));
+            customNotificationHandler.sendSmallNotification(getString(R.string.notificationTest_Title), getString(R.string.notificationTest_Text), getString(R.string.notificationChannel_1_ID), 404);
             return true;
         }
 
