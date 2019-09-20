@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+    //public SnackBarController snackBarController = new SnackBarController(findViewById(R.id.MainCoordinatorLayout));
     public CustomNotificationHandler customNotificationHandler = new CustomNotificationHandler(this);
 
     @Override
@@ -42,6 +43,25 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.testNotification){
             Log.d("OptionsItemLog",Integer.toString(id) +" ?= " + R.id.testNotification);
             customNotificationHandler.sendSmallNotification(getString(R.string.notificationTest_Title), getString(R.string.notificationTest_Text), getString(R.string.notificationChannel_1_ID), 404);
+            return true;
+        }
+
+        if (id == R.id.testTCP){
+            Log.d("OptionsItemLog",Integer.toString(id) +" ?= " + R.id.testTCP);
+            TCPController tcp = new TCPController("notifier.ajh657.net",7070, this);
+            Log.d("Connection Test", Integer.toString(tcp.testConn()));
+            /*switch (tcp.testConn()){
+                case 200:
+                    snackBarController.Show("Test was successful");
+                    break;
+
+                case 400:
+                    snackBarController.Show("Connection Error");
+                    break;
+
+                case 500:
+                    snackBarController.Show("Reader Error");
+            }*/
             return true;
         }
 
