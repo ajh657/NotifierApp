@@ -24,7 +24,7 @@ public class TCPController {
 
     public TCPController(String IP,int Port,Context currentContext){
         this.context = currentContext;
-        this.ip = ip;
+        this.ip = IP;
         this.port = Port;
     }
 
@@ -32,8 +32,8 @@ public class TCPController {
 
         try {
             Log.d("TCPController", "Attempting to connect");
-            InetAddress serverAddr = InetAddress.getByName(ip);
-            socketConnection = new Socket(serverAddr,port);
+            Log.d("TCPController", ip);
+            socketConnection = new Socket(ip,port);
         }catch (Exception e){
             Log.d("SocketException", e.toString());
 

@@ -15,7 +15,7 @@ public class TCPWorker extends Worker {
     @Override
     public Result doWork() {
 
-        TCPController tcp = new TCPController("notifier.ajh657.net",7070, getApplicationContext());
+        TCPController tcp = new TCPController("185.101.93.152",7070, getApplicationContext());
 
         if (tcp.testConn() != 200){
             return Result.failure();
