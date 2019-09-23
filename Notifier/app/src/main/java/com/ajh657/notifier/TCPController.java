@@ -35,7 +35,8 @@ public class TCPController {
             InetAddress serverAddr = InetAddress.getByName(ip);
             socketConnection = new Socket(serverAddr,port);
         }catch (Exception e){
-            Log.d("SocketException", e.getMessage(), e.getCause());
+            Log.d("SocketException", e.toString());
+
             return 400;
         }
 

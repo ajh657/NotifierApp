@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,20 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.testTCP){
             Log.d("OptionsItemLog",Integer.toString(id) +" ?= " + R.id.testTCP);
-            TCPController tcp = new TCPController("notifier.ajh657.net",7070, this);
-            Log.d("Connection Test", Integer.toString(tcp.testConn()));
-            /*switch (tcp.testConn()){
-                case 200:
-                    snackBarController.Show("Test was successful");
-                    break;
-
-                case 400:
-                    snackBarController.Show("Connection Error");
-                    break;
-
-                case 500:
-                    snackBarController.Show("Reader Error");
-            }*/
+            OneTimeWorkRequest tcpWork = new OneTimeWorkRequest.Builder(TCPWorker.class).build();
+            WorkManager.getInstance(this).enqueue(tcpWork);
             return true;
         }
 
