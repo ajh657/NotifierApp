@@ -49,8 +49,8 @@ public class TCPController {
         }
 
         try{
-
-            out.println(System.getProperty("os.version"));
+            String output = System.getProperty("os.version") + " " + null;
+            out.println(output.getBytes());
             bufferString = in.readLine();
             Log.d("Connection test", bufferString);
 
